@@ -11,7 +11,7 @@ P2P_PORT = 8121
 ADDRESS_VERSION = 32
 RPC_PORT = 8122
 RPC_CHECK = defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-            'goldcoinaddress' in (yield bitcoind.rpc_help()) and
+            'goldcoinprivkey' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
         ))
 SUBSIDY_FUNC=lambda height: 4*100000000 >> (height + 1)//26325000
